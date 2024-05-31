@@ -98,6 +98,9 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> Li
     if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
         section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
+    if locale == "pl" and section.title.strip().startswith("{{odmiana"):
+        return definitions
+
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
@@ -263,6 +266,9 @@ def find_all_sections(code: str, locale: str) -> Tuple[List[wtp.Section], List[T
     def section_title(title: str) -> str:
         if locale == "de":
             title = title.split("(")[-1].strip(" )")
+        if locale == "pl":
+            # kot ({{język X}}) => {{język X}}
+            return title.split("(")[-1].strip(" )")
         return title.replace(" ", "").lower().strip() if title else ""
 
     # Get interesting top sections
@@ -386,6 +392,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{=da=}} -> =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
+    if locale == "pl":
+        #{{wymowa}} => === {{wymowa}} ===
+        code = re.sub(r"^\{\{(\w+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
     return code
 
 

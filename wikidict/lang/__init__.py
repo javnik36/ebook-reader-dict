@@ -2,7 +2,7 @@
 
 from typing import Any, Dict, Tuple, TypeVar
 
-from . import ca, da, de, defaults, el, en, es, fr, it, no, pt, ro, ru, sv
+from . import ca, da, de, defaults, el, en, es, fr, it, no, pl, pt, ro, ru, sv
 
 ALL_LOCALES = {  # XXX_LOCALES
     "ca": ca,
@@ -14,6 +14,7 @@ ALL_LOCALES = {  # XXX_LOCALES
     "fr": fr,
     "it": it,
     "no": no,
+    "pl": pl,
     "pt": pt,
     "ro": ro,
     "ru": ru,
