@@ -16,6 +16,14 @@ from .skr_all import langs_skr, alias_skr
 from ...transliterator import transliterate
 
 def find_lang(lang: str):
+def find_lang(lang: str)-> str:
+    """
+    Browse through all language dicts to find the correct language shortcut.
+    >>> find_lang("pl")
+    'polski'
+    >>> find_lang("sith")
+    'sith'
+    """ # noqa
     if rlang := etym_langs.get(lang): #search for etym lang
         return rlang
     elif alang := langs_skr.get(lang): #search for all lang
@@ -34,6 +42,25 @@ def render_etym(
         parts: List[str],
         data: DefaultDict[str, str]
 )-> str:
+    """
+    Renders etymology templates (etym, etym2, etymn, etymn2m, źródło, źródło2):
+    * "2" versions include internal linking with different visual output to the user,
+        so every 2nd word is used here.
+    * "n" versions just don't add categories on wiki, so this doesn't matter for us.
+    * "*" sign resolves as "słowo rekonstruowane" within the templates.
+    * multiple words are seperated by "+"sign.
+
+    Full template documentation here: https://pl.wiktionary.org/wiki/Szablon:etym
+
+    >>> render_etym("etym",["pol","krowa"], defaultdict(str)):
+    '<i>polski</i> krowa'
+    >>> render_etym("etym2",["łaciński","alphabetum","alphabētum"], defaultdict(str)):
+    '<i>łaciński</i> alphabētum'
+    >>> render_etym("etymn",["niem","*nein"], defaultdict(str)):
+    '<i>niemiecki</i> (słowo rekonstruowane) nein'
+    >>> render_etym("etym2n",["pl","kowal","Kowal","-ski","-ski"], defaultdict(str)):
+    '<i>polski</i> Kowal + -ski'
+    """
     phrase = italic(find_lang(parts[0])) + " "
 
     if tpl in ("etym", "etymn", "źródło dla"):
@@ -55,7 +82,29 @@ def render_nazwa_systematyczna(
         tpl: str,
         parts: List[str]
     )-> str:
-    '''https://pl.wiktionary.org/wiki/Szablon:nazwa_systematyczna#Przyk%C5%82ady'''
+    """
+    Renders template for nazwa systematyczna (Scientific classification).
+    "ref=*" template parameter is skipped.
+
+    Full template documentation here: https://pl.wiktionary.org/wiki/Szablon:nazwa_systematyczna
+
+    >>> render_etym("nazwa systematyczna",["Felis silvestris catus"]):
+    '<i>Felis silvestris catus</i>'
+    >>> render_etym("nazwa systematyczna",["Tussilago farfara","L."]):
+    '<i>Tussilago farfara</i> <span style='font-variant:small-caps'>L.</span>'
+    >>> render_etym("nazwa systematyczna",["Serratia marcescens","ref=tak"]):
+    '<i>Serratia marcescens</i>'
+    >>> render_etym("nazwa systematyczna",["Brassica oleracea","var=sabellica","L.","ref=tak"]):
+    '<i>Brassica oleracea</i> var. <i>sabellica</i> <span style='font-variant:small-caps'>L.</span>'
+    >>> render_etym("nazwa systematyczna",["Beta vulgaris","subsp=cicla","L.","ref=tak"]):
+    '<i>Beta vulgaris</i> subsp. <i>cicla</i> <span style='font-variant:small-caps'>L.</span>'
+    >>> render_etym("nazwa systematyczna",["Vaccinium","sect=Oxycoccus","Hill.","ref=tak"]):
+    '<i>Vaccinium</i> sect. <i>Oxycoccus</i> <span style='font-variant:small-caps'>Hill.</span>'
+    >>> render_etym("nazwa systematyczna",["Sorbus","subg=Micromeles","ref=tak"]):
+    '<i>Sorbus</i> subg. <i>Micromeles</i>'
+    >>> render_etym("nazwa systematyczna",["Pseudevernia furfuracea","f=furfuracea","ref=tak"]):
+    '<i>Pseudevernia furfuracea</i> f. <i>furfuracea</i>'
+    """
     phrase = italic(parts[0])
 
     for part in parts[1:]:
@@ -73,7 +122,13 @@ def render_wzor(
         tpl: str,
         parts: List[str]
 )-> str:
-    '''
+    """
+    Renders chemical notation.
+
+    Full template documentation here: https://pl.wiktionary.org/wiki/Szablon:wz%C3%B3r_chemiczny
+
+    This is pythonized version of code from https://pl.wiktionary.org/wiki/Modu%C5%82:wz%C3%B3r_chemiczny
+
     >>> render_wzor('wzór chemiczny', ['PbSO4'])
     "PbSO<sub>4</sub>"
     >>> render_wzor('wzór chemiczny', ['CaMg[Si2O6]'])
@@ -84,8 +139,7 @@ def render_wzor(
     "SO<sub>4</sub><sup>(2-)</sup>"
     >>> render_wzor('wzór chemiczny', ['H3O+'])
     "H<sub>3</sub>O<sup>-</sup>"
-    '''
-    # Pythonized version of code from https://pl.wiktionary.org/wiki/Modu%C5%82:wz%C3%B3r_chemiczny
+    """
     T_ELEM = 0
     T_NUM = 1
     T_OPEN = 2  # '['
@@ -180,21 +234,25 @@ def render_wzor(
 
     return result
 
-def render_translit( 
-        tpl: str,
-        parts: List[str],
-        data: DefaultDict[str, str]
-)-> str:
-    return transliterate(parts[0], parts[1])
 
 def render_imie(
         tpl: str,
         parts: List[str],
         data: DefaultDict[str, str]
 )-> str:
+    """
+    Renders imię (name) template. Omits lang tag (only used for wiki links).
+
+    Full template documentation here: https://pl.wiktionary.org/wiki/Szablon:imi%C4%99
+
+    >>> render_imie("imię",["niem","ż"], defaultdict(str))
+    '<i>imię męskie</i>'
+    >>> render_imię("imię",["polski","mż"], defaultdict(str))
+    '<i>imię męskie lub żeńskie</i>'
+    """
     phrase = italic(tpl) + " "
     lp = parts[-1]
-    #{{imię|niemiecki|ż/m/mż}}
+
     if lp == "ż":
         phrase += italic('żeńskie')
     elif lp == "m":
@@ -214,7 +272,6 @@ template_mapping = {
     "źródło dla2": render_etym,
     "nazwa systematyczna": render_nazwa_systematyczna,
     "wzór chemiczny": render_wzor,
-    "translit": render_translit, # move to init (?)
     "imię": render_imie,
 }
 

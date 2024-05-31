@@ -4,6 +4,7 @@ import re
 from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq, small_caps, strong
+from ...transliterator import transliterate
 
 # Float number separator
 float_separator = ","
@@ -131,6 +132,8 @@ templates_multi = {
     "forma zaimka": "italic('zaimek, forma fleksyjna')",
     #{{forma czasownika|pl}}
     "forma czasownika": "italic('czasownik, forma fleksyjna')",
+    #{{translit|ru|x}}
+    "translit": "transliterate(parts[0], parts[1])",
 }
 
 def find_genders(
@@ -171,14 +174,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
-    >>> last_template_handler(["default"], "de")
-    '##opendoublecurly##default##closedoublecurly##'
-    >>> last_template_handler(["fr."], "de")
-    'französisch'
-    >>> last_template_handler(["fr.", ":"], "de")
-    'französisch:'
-    >>> last_template_handler(["fr"], "de")
-    'Französisch'
+    >>> last_template_handler(["etym","niem","Klappe"], "pl", "klapa")
+    '<i>niemiecki</i> Klappe'
+    >>> last_template_handler(["etym2n","angielski","cat","cats","dog","dogs"], "pl")
+    '<i>angielski</i> cats + dogs'
+    >>> last_template_handler(["źródło dla","łac","iactus"], "pl")
+    '<i>łacina</i> iactus'
+    >>> last_template_handler(["nazwa systematyczna","Vaccinium","sect=Oxycoccus","Hill.","ref=tak"], "pl")
+    '<i>Vaccinium</i> sect. <i>Oxycoccus</i> <span style='font-variant:small-caps'>Hill.</span>'
+    >>> last_template_handler(['wzór chemiczny', 'SO4(2-)'], "pl)
+    'SO<sub>4</sub><sup>(2-)</sup>'
+    >>> last_template_handler(["imię","ukraiński","m"], "pl")
+    '<i>imię męskie</i>'
+    >>> last_template_handler(["imię","pl","mż"], "pl")
+    '<i>imię męskie lub żeńskie</i>'
     """  # noqa
     from ...user_functions import italic
     from ..defaults import last_template_handler as default
