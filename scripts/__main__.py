@@ -28,6 +28,8 @@ FILES = {
     "it-codelangs.py": "wikidict/lang/it/codelangs.py",
     "it-langs.py": "wikidict/lang/it/langs.py",
     "no-langs.py": "wikidict/lang/no/langs.py",
+    "pl-etym-langs.py": "wikidict/lang/pl/etym-langs.py",
+    "pl-skr-all.py": "wikidict/lang/pl/skr-all.py",
     "pt-codelangs.py": "wikidict/lang/pt/codelangs.py",
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
