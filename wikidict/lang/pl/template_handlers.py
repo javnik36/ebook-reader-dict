@@ -11,12 +11,8 @@ from ...user_functions import (
     superscript
 )
 
-#from .odmiana_zaimkow import odmiana_zaimkow
-from .skr import skr_list
-from .langs import langs
 from .etym_langs import etym_langs
 from .skr_all import langs_skr, alias_skr
-#from .translit import transliterate
 from ...transliterator import transliterate
 
 def find_lang(lang: str):
