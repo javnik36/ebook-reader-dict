@@ -25,6 +25,7 @@ from .constants import (
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
+    grammar_template_handler,
     release_description,
     templates_ignored,
     templates_italic,
@@ -627,6 +628,9 @@ def transform(word: str, template: str, locale: str) -> str:
     # Apply transformations
 
     with suppress(KeyError):
+        #rv = eval(templates_multi[locale][tpl])
+        #print(f"Rendered '{rv}'!")
+        #return rv
         return eval(templates_multi[locale][tpl])  # type: ignore
 
     if len(parts) == 1:
@@ -637,3 +641,31 @@ def transform(word: str, template: str, locale: str) -> str:
         return templates_other[locale][tpl]
 
     return str(last_template_handler[locale](parts, locale, word=word))
+
+def transform_grammar_template(
+        word: str, 
+        wikicode: str, 
+        locale: str, 
+        callback: Callable[[str, str], str] = clean)-> list:
+    '''
+    Transform long templates that end up being needed as a list rather than a string (e.g. for variants).
+
+    For now only needed for pl (?). 
+    '''
+    # Clean-up the code
+    text = wikicode
+    #text = callback(wikicode, locale) #needed?
+    #print(f"Tekst po klinowaniu w (transform_grammar_template): {text}")
+
+    # {{foo}}
+    # {{foo|bar}}
+    # {{foo|{{bar}}|123}}
+    # {{foo|{{bar|baz}}|123}}
+    # {{foo|{{bar|lang|{{baz|args}}}}|123}}
+
+    #Assume text contains only template that needs to be processed (don't process nested templates separately)
+    parts_raw = text.lstrip("{{").rstrip("}}").split("|")
+    parts = [p.strip() for p in parts_raw]
+    rendered_template = grammar_template_handler[locale](parts, locale, word=word)
+
+    return text.strip()

@@ -5,6 +5,10 @@ import threading
 from pathlib import Path
 
 FILES = {
+    "pl-langs.py": "wikidict/lang/pl/langs.py",
+    "pl-skr.py": "wikidict/lang/pl/skr.py",
+}
+""" FILES = {
     "all-namespaces.py": "wikidict/namespaces.py",
     "ca-labels.py": "wikidict/lang/ca/labels.py",
     "ca-langs.py": "wikidict/lang/ca/langs.py",
@@ -35,7 +39,7 @@ FILES = {
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
 }
-
+ """
 
 def replace(file: str, data: str) -> bool:
     """Update contents in the file, even if there was no change."""

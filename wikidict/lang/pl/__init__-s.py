@@ -2,10 +2,8 @@
 
 import re
 from typing import List, Pattern, Tuple
-from contextlib import suppress
 
-from ...user_functions import flatten, uniq, small_caps, strong
-from ...transliterator import transliterate
+from ...user_functions import uniq, small_caps, strong
 
 # Float number separator
 float_separator = ","
@@ -15,23 +13,14 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = "{{język polski}}"
-#head_sections = "{{j\u0119zyk polski}}"
 etyl_section = ("{{etymologia}}",)
 
-
-#section_patterns = (r"\:", r"\*")
-section_patterns = (r"\:",) #<<
-#new approach:
-#section_patterns = r"\#"
-#sublist_patterns = r"\#"
-
-#sublist_patterns = (r"\:", r"\*")
+section_patterns = (r"\:",)
 section_level = 2
 section_sublevels = (3,)
 
 
 sections = (
-    #"{{wymowa}}",
     "{{znaczenia}}",
     *etyl_section,
     "{{odmiana}}",
@@ -41,28 +30,7 @@ variant_titles = (
     "{{odmiana"
 )
 
-variant_templates = (
-    "{{odmiana-liczebnik-polski",
-    "{{odmiana-czasownik-niewłaściwy-polski"
-)
-
-variant_templates_todo = (
-    "{{odmiana-rzeczownik-polski",
-    "{{nieodm-rzeczownik-polski", #albo }} => return none
-    "{{alternatywna wymowa -izmów}",
-    "{{alternatywna wymowa -izmów2}",
-    "{{alternatywna wymowa -izmów3}",
-    "{{odmiana-przymiotnik-polski",  # >> jest milion szablonów per kejs :<
-    #"{{nieodm-przymiotnik-polski}",
-    "{{stopn", #przysłówki stopniowalne
-    #"{{niestopn}", #przysłówki nieodmienne lit. "nieodm.""
-    "{{KoniugacjaPL}", #deprecated verb odmiana
-    "{{odmiana-czasownik-polski", # >> jest moduł do tego
-    "{{odmiana-czasownik-niewłaściwy-polski",
-    "{{odmiana-męskie-nazwisko-polskie-ki}", # 1 użycie XD
-    "{{odmiana-męskie-nazwisko-polskie-ny}", # 1 użycie XD
-    "{{odmiana-zaimków}}",
-)
+variant_templates = ()
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pl
@@ -87,14 +55,11 @@ definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
-    #"AS"
-    #"AS3", #?
-    #"AS4",
     "audio",
     "fakt", #odnośnik do brakującego źródła
     "Gloger",
     "homofony",
-    "język linków", #odsyla linki poniżej do innego wiktionary
+    "język linków", #odsyła linki poniżej do innego wiktionary
     "objaśnienie wymowy",
     "ortograficzny",
     "podobne",
@@ -108,13 +73,6 @@ templates_ignored = (
     "transkrypcja etymologii", #daje cytat o brakującej transkrypcji
     "zoblistę", #tworzy listę słów
     "zn-stperski", #1no użycie, żeby znaczki perskie były obrazkami - worth it?
-    #"Abramowiczówna&Appel2023",
-    #"Adalberg1894",
-    #"Akademia1913",
-    #"Amszejewicz1859",
-    #"Arct1916",
-    #"Arct1928",
-
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -173,11 +131,8 @@ templates_multi = {
     "forma zaimka": "italic('zaimek, forma fleksyjna')",
     #{{forma czasownika|pl}}
     "forma czasownika": "italic('czasownik, forma fleksyjna')",
-    #{{translit|ru|x}}
-    "translit": "transliterate(parts[0], parts[1])",
 }
 
-# https://regex101.com/r/7yxUkv/1
 def find_genders(
     code: str,
     pattern: Pattern[str] = re.compile(r"\w+\,\srodzaj\s(\w+)"),
@@ -190,9 +145,6 @@ def find_genders(
     """
     return uniq(pattern.findall(code))
 
-# {{\w+\|([^}]+)}}
-# {{IPA.?\|([^}]+)}}
-# add suport for AS3? https://pl.wiktionary.org/wiki/Kategoria:Szablony_wymowy
 def find_pronunciations(
     code: str) -> List[str]:
     """
@@ -203,12 +155,10 @@ def find_pronunciations(
     >>> find_pronunciations("{{wymowa}} {{audio|Pl-Szwecja.ogg}}, {{IPA3|ˈʃfɛʦ̑ʲja}}, {{AS3|šf'''e'''cʹi ̯a}}, {{objaśnienie wymowy|ZM|BDŹW}}")
     ['<span style='font-variant:small-caps'>IPA:</span> [ˈʃfɛʦ̑ʲja]', '<span style='font-variant:small-caps'>AS:</span> [šf<b>e</b>cʹi ̯a]']
     """  # noqa
-    #return [f"[{p}]" for p in uniq(pattern.findall(code))]
     IPA_pattern = re.compile(r"{{IPA3\|([^}]+)}}")
     AS_pattern = re.compile(r"{{AS3\|([^}]+)}}")
-    #prons = []
+
     IPA_prons = [f"{small_caps('IPA:')} [{pron}]" for pron in uniq(IPA_pattern.findall(code))]
-    #AS_prons = [f"{small_caps('AS:')} [{pron}]" for pron in uniq(AS_pattern.findall(code))]
     AS_prons = []
 
     for pron in uniq(AS_pattern.findall(code)):
@@ -221,33 +171,21 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
-    >>> last_template_handler(["etym","niem","Klappe"], "pl", "klapa")
-    '<i>niemiecki</i> Klappe'
-    >>> last_template_handler(["etym2n","angielski","cat","cats","dog","dogs"], "pl")
-    '<i>angielski</i> cats + dogs'
-    >>> last_template_handler(["źródło dla","łac","iactus"], "pl")
-    '<i>łacina</i> iactus'
-    >>> last_template_handler(["nazwa systematyczna","Vaccinium","sect=Oxycoccus","Hill.","ref=tak"], "pl")
-    '<i>Vaccinium</i> sect. <i>Oxycoccus</i> <span style='font-variant:small-caps'>Hill.</span>'
-    >>> last_template_handler(['wzór chemiczny', 'SO4(2-)'], "pl)
-    'SO<sub>4</sub><sup>(2-)</sup>'
-    >>> last_template_handler(["imię","ukraiński","m"], "pl")
-    '<i>imię męskie</i>'
-    >>> last_template_handler(["imię","pl","mż"], "pl")
-    '<i>imię męskie lub żeńskie</i>'
+    >>> last_template_handler(["default"], "de")
+    '##opendoublecurly##default##closedoublecurly##'
+    >>> last_template_handler(["fr."], "de")
+    'französisch'
+    >>> last_template_handler(["fr.", ":"], "de")
+    'französisch:'
+    >>> last_template_handler(["fr"], "de")
+    'Französisch'
     """  # noqa
     from ...user_functions import italic
     from ..defaults import last_template_handler as default
-    from .skr import skr_list
     from .skr_all import skr_all, grammar_skr, inflection_skr, langs_skr, alias_skr
-    #from .langs import langs
     from .template_handlers import lookup_template, render_template
-    #strashuj
-    from .template_handlers import template_mapping
 
     if skr_all_render := skr_all.get(template[0]):
-        #print(f"Render checkup: >>>{template[0]}<<<")
-        #print(f"Rendered {skr_render}!")
         return italic(f"{skr_all_render}")
     
     if skr_grammar_render := grammar_skr.get(template[0]):
@@ -262,35 +200,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
                     "białorus": "białoruski",
                     "łacina średniowieczna": "średniowiecznołaciński",
                     "prowans": "prowansalski"}
+    
     if skr_lang_render := (langs_skr.get(template[0]) or alias_skr.get(template[0]) or manual_langs.get(template[0])):
         if len(template) > 1:
             return f"{italic(f'{skr_lang_render}')} {template[-1]}"
         else:
             return italic(f"{skr_lang_render}")
-
     
     if lookup_template(template[0]):
-        return render_template(template)# add word as argument
-   
-    print(f"{word}: >>>>>>>>>>>>>>")
-    for i in template:
-        print(f"Kolejny składnik templejta: {i}")
+        return render_template(template)
 
     return default(template, locale, word=word)
-
-def grammar_template_handler(template: Tuple[str, ...], locale: str, word:str ) -> list:
-    from .template_handlers import lookup_template_grammar, render_grammar_template
-
-    if lookup_template_grammar(template[0]):
-        return render_grammar_template(template, word)
-    
-    return []
-
-
-#words: 90 798>94 778>94 776>104 465
-#errors ?>9762>9764>2
-
-#chantyjskie,łaciński, praceltycki, średniowalijskie, gallo-łacińskie, protoceltyckie, praindoeuropejskie, staroirlandzkie, galijskie, skandynawskie,
-#pie > praindoeuropejskie
-
-#purptrad? (gdzie i?!)

@@ -21,7 +21,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
     templates: Dict[str, str] = {}
     locale_sections = sections[locale]
     for in_word, code in in_words.items():
-        if locale == "da":
+        if locale in {"da","pl"}:
             code = adjust_wikicode(code, locale)
 
         for title in find_titles(code, locale):

@@ -28,7 +28,7 @@ from .lang import (
     variant_titles,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import process_templates, table2html, uniq
+from .utils import process_templates, table2html, uniq, transform_grammar_template
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -288,6 +288,8 @@ def find_all_sections(code: str, locale: str) -> Tuple[List[wtp.Section], List[T
         )
     )
 
+    #for section in all_sections:
+    #    print(section[0])
     return top_sections, all_sections
 
 
@@ -300,12 +302,21 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
         # Filter on interesting sections
         if title.startswith(wanted):
             ret[title].append(section)
+    
+    #for nm, sc in ret.items():
+    #    print(nm)
     return top_sections, ret
 
 
 def add_potential_variant(word: str, tpl: str, locale: str, variants: List[str]) -> None:
-    if (variant := process_templates(word, tpl, locale)) and variant != word:
-        variants.append(variant)
+    if locale == "pl":
+        if var_list := transform_grammar_template(word, tpl, locale):
+            #for i in var_list:
+            #    print(i)
+            variants += (var_list)
+    else:
+        if (variant := process_templates(word, tpl, locale)) and variant != word:
+            variants.append(variant)
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
@@ -395,6 +406,18 @@ def adjust_wikicode(code: str, locale: str) -> str:
     if locale == "pl":
         #{{wymowa}} => === {{wymowa}} ===
         code = re.sub(r"^\{\{(\w+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+        # Definition lists are not well supported by the parser, replace them by numbered lists
+        # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
+        #       contains an empty item.
+        # "'' rzecz.." => "# ''rzecz..."
+        #code = re.sub(r"^\'\'", "# ''", code)
+        # ": (1.1)" => "## (1.1)"
+        #code = re.sub(r"^\:\s", "## ", code)
+        #[[Aneks:Język polski - zaimki|opis polskich zaimków na stronie aneksu]] => {{odmiana-zaimków}}
+        # hack to catch all variants later on
+        code = re.sub(r"\[\[Aneks:Język polski - zaimki\|.+\]\]", r"{{odmiana-zaimków}}", code, flags=re.MULTILINE)
+
+
     return code
 
 
@@ -426,14 +449,16 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     if interesting_titles := variant_titles[locale]:
         interesting_templates = variant_templates[locale]
         for title, parsed_section in parsed_sections.items():
+            print(f"Tytuł sekcji: {title}")
             if not title.startswith(interesting_titles):
                 continue
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
+                print(f"TO JEST TEMPLEJT >> '{tpl}' <<")
                 if tpl.startswith(interesting_templates):
                     add_potential_variant(word, tpl, locale, variants)
         if variants:
-            variants = sorted(set(variants))
+            variants = sorted(set(uniq(variants)))
 
     return Word(prons, genders, etymology, definitions, variants)
 
@@ -448,10 +473,13 @@ def load(file: Path) -> Dict[str, str]:
 
 def render_word(w: List[str], words: Words, locale: str) -> None:
     word, code = w
+    print(f"## {word} ##")
     try:
         details = parse_word(word, code, locale)
-    except Exception:  # pragma: nocover
+    except Exception as w:  # pragma: nocover
+        #raise Exception
         print(f"ERROR with {word!r}", flush=True)
+        print(w)
     else:
         if details.definitions or details.variants:
             words[word] = details
@@ -508,3 +536,5 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
 
     print(">>> Render done!", flush=True)
     return 0
+
+#main("pl",1)

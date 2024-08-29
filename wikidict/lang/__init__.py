@@ -116,3 +116,6 @@ find_pronunciations = _populate("find_pronunciations")
 # When a template is not handled by any previous template handlers,
 # this function will be called with *parts* as argument.
 last_template_handler = _populate("last_template_handler")
+
+# Funtion to handle variants templates resulting in a list.
+grammar_template_handler = _populate("grammar_template_handler")

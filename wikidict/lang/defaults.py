@@ -127,3 +127,7 @@ def render_wikilink(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> 
         return parts[1]
     except IndexError:
         return parts[0] if parts else ""
+
+
+def grammar_template_handler(template: Tuple[str, ...], locale: str, word: str) -> list:    
+    return []

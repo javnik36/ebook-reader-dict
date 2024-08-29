@@ -1,0 +1,203 @@
+{{podobne|-kot|Kot|kott|kòt|köt|kött}}
+== kot ({{język polski}}) ==
+[[Plik:Felis catus-cat on snow.jpg|thumb|kot (1.1)]]
+[[Plik:Snow Leopard at the Toronto Zoo.jpg|thumb|kot (1.2)]]
+[[Plik:01-sfel-08-009a.jpg|thumb|kot (1.3)]]
+[[Plik:Dust bunnies.jpg|thumb|koty (1.4)]]
+[[Plik:Marine Corps drill instructor yells at recruit.jpg|thumb|kot (2.1)]]
+{{wymowa}}
+: {{IPA3|kɔt}}, {{AS3|kot}}
+: {{homofony|kod}}
+: {{audio|Pl-kot.ogg}}, {{audio|LL-Q809 (pol)-Olaf-kot.wav}} {{audio|LL-Q809 (pol)-Gower-kot.wav}}
+{{znaczenia}}
+''rzeczownik, rodzaj męskozwierzęcy''
+: (1.1) {{zool}} {{nazwa systematyczna|Felis catus|Linnaeus|ref=tak}}, [[zwierzę domowe]]; {{wikipedia|kot domowy}}
+: (1.2) {{zool}} [[każdy|każde]] [[zwierzę]] [[drapieżny|drapieżne]] [[z]] [[rodzina|rodziny]] {{nazwa systematyczna|Felidae|G. Fischer|ref=tak}}, [[o]] [[smukły]]m [[ciało|ciele]], [[miękki]]ej [[sierść|sierści]] [[i]] [[długi]]m [[ogon]]ie
+: (1.3) {{łow}} [[samiec]] [[zając]]a
+: (1.4) {{pot}} [[kłąb]] [[kurz]]u [[zbierać|zbierającego]] [[się]] [[w]] [[zakamarek|zakamarkach]] [[mieszkanie|mieszkania]]
+: (1.5) {{daw}} [[młode zwierzę]]
+''rzeczownik, rodzaj męskoosobowy''
+: (2.1) {{slang}} [[rekrut]], [[nowy]] [[uczeń]]
+{{odmiana}}
+: (1.1-4) {{odmiana-rzeczownik-polski
+|Mianownik lp = kot
+|Dopełniacz lp = kota
+|Celownik lp = kotu
+|Biernik lp = kota
+|Narzędnik lp = kotem
+|Miejscownik lp = kocie
+|Wołacz lp = kocie
+|Mianownik lm = koty
+|Dopełniacz lm = kotów
+|Celownik lm = kotom
+|Biernik lm = koty
+|Narzędnik lm = kotami
+|Miejscownik lm = kotach
+|Wołacz lm = koty
+}}
+: (2.1) {{odmiana-rzeczownik-polski
+|Mianownik lp = kot
+|Dopełniacz lp = kota
+|Celownik lp = kotowi
+|Biernik lp = kota
+|Narzędnik lp = kotem
+|Miejscownik lp = kocie
+|Wołacz lp = kocie
+|Mianownik lm = koty
+|Dopełniacz lm = kotów
+|Celownik lm = kotom
+|Biernik lm = kotów
+|Narzędnik lm = kotami
+|Miejscownik lm = kotach
+|Wołacz lm = koty
+|Forma ndepr = kotowie
+}}
+{{przykłady}}
+: (1.1) ''[[kot|Kot]] [[gonić|goni]] [[za]] [[mysz]]ą.''
+: (1.1) ''[[a|A]] [[jaki]] [[być|jest]] [[twój]] [[kot]]?''<ref>[https://www.youtube.com/watch?v=CQK2yclikf0 KOT JAKO CZŁOWIEK]</ref>
+: (1.2) ''[[kot|Koty]] [[umieszczać|umieszczone]] [[być|są]] [[w]] [[północny]]m [[sektor]]ze [[zoo]].''
+: (1.3) ''[[on|On]] [[wczoraj]] [[złapać|złapał]] [[kot]]a.''
+: (1.4) ''[[Rozalia]] [[zamiatać|zamiotła]] [[kot]]y [[kurz]]u [[pod]] [[dywan]].''
+: (2.1) ''[[bardzo|Najbardziej]] [[ekscytować|ekscytującym]] [[aspekt]]em [[służba|służby]] [[wojskowy|wojskowej]] [[być|jest]] [[bycie]] [[kot]]em.''
+{{składnia}}
+{{kolokacje}}
+: (1.1) kot [[miauczeć|miauczy]] / [[drapać|drapie]] / [[mruczeć|mruczy]] / [[polować|poluje]] / [[marcować|marcuje]] • [[dać]] kotu [[mleko|mleka]] • [[karmić]] / [[dokarmiać]] / [[głaskać]] / [[hodować]] / [[oswoić]] / [[trzymać]] / [[pielęgnować]] kota • [[pokarm]] [[dla]] kotów • [[wystawa]] kotów [[rasowy]]ch • [[łasić się]] [[jak]] kot • [[chodzić]] [[cicho]] [[jak]] kot • [[poruszać się]] [[jak]] kot • [[opiekować się]] kotem • [[bawić się]] / [[chodzić]] [[na]] [[spacer]] [[z]] kotem • [[bezdomny]] / [[bezpański]] kot
+{{synonimy}}
+: (1.1) [[kot domowy]]; {{żart}} [[dachołaz]], [[dachowiec]]; {{pogard}} [[sierściuch]], [[futrzak]]; {{poznań|[[kociamber]]}}, {{lwów|[[kacaraba]]}}
+: (1.4) [[farfocel]]
+{{antonimy}}
+{{hiperonimy}}
+{{hiponimy}}
+: (1.1) [[kot bengalski]] • [[kot perski]] • [[kot syjamski]] • [[kot europejski]] • [[kot norweski leśny]] • [[kot nubijski]]
+: (1.2) [[kot bagienny]] • [[kot bengalski]] • [[kot błotny]] • [[kot nubijski]] • [[kot trzcinowy]]
+{{holonimy}}
+{{meronimy}}
+{{pokrewne}}
+: {{rzecz}} [[kotka]] {{ż}}, [[kocica]] {{ż}}, [[kocię]] {{n}}, [[kocik]] {{mzw}}, [[kocur]] {{mzw}}, [[kociarz]] {{mos}}, [[kociara]] {{ż}}, [[kocimiętka]] {{ż}}, [[kociarstwo]] {{n}}, [[kociamber]] {{mos}}/{{mzw}}, [[kociokwik]] {{mrz}}
+:: {{zdrobn}} [[kotek]] {{mzw}}, [[kociak]] {{mzw}}, [[koteczek]] {{mzw}}, [[kociaczek]] {{mzw}}
+:: {{zgrub}} [[kocisko]] {{n}}, [[kocurzysko]] {{n}}
+: {{czas}} [[kocić się]], [[kocić]] {{ndk}}, [[okocić]] {{dk}}, [[wykocić]] {{dk}}, [[kotować]] {{ndk}}
+: {{przym}} [[koci]], [[kociarski]], [[kotny]], [[kotowaty]]
+: {{przysł}} [[kocio]]
+: {{temsłow}} [[kocio-]]
+{{frazeologia}}
+: [[bawić się jak kot z myszą]] / [[bawić się w kotka i myszkę]] • [[biegać jak kot oparzony]] / [[biegać jak kot zagorzały]] • [[bodaj tak kot płakał]] • [[być łasym jak kot na myszy]] • {{gwara}} [[bystry jak Maćków kot]] • [[chadzać jak kot własnymi drogami]] / [[kot zawsze chadza własnymi ścieżkami]] • [[chodzić jak kot po gorącej blasze]] • [[ciągnąć kota]] • [[dostać kota]] / [[dostawać kota]] • [[drzeć koty]] • [[drzeć się jak pies z kotem]] / [[gryźć się jak pies z kotem]] / [[lubić się jak pies z kotem]] / [[zgodzić się jak pies z kotem]] / [[żreć się jak pies z kotem]] / [[żyć jak pies z kotem]] • [[fałszywy jak kot]] • [[jak kot z pęcherzem]] • [[kochliwy jak kot w marcu]] • [[kota paść]] • [[kot mu za uchem wrzeszczy]] • [[kot Schrödingera]] • [[kot w butach]] • [[kot zawsze spada na cztery łapy]] • {{daw}} [[koty w prawie]] • [[kupować kota w miechu]]<ref>Antoni Danysz, ''Odrębności słownikarskie kulturalnego języka polskiego w Wielkopolsce w stosunku do kulturalnego języka w Galicyi'', „Język Polski” nr 8–10, s. 249.</ref> / [[kupować kota w worku]] • [[mieć kota]] • [[mieć kota na punkcie]] • [[mieć minę jak kot srający na puszczy]] / [[mieć minę jak kot srający na pustyni]] • [[myszy tańcują, gdy kota nie czują]] • [[nie głaskać kota pod włos]] • [[odwracać kota ogonem]] / [[wykręcać kota ogonem]] • [[parszywy jak kot]] • [[patrzeć jak kot na szperkę]] • [[pierwsze koty za płoty]] • [[pogonić kota]] / [[popędzić kota]] • [[puszczać kota na czysto]] • [[rzygać jak kot]] • [[spaść jak kot na cztery łapy]] • [[spaść na cztery łapy]] • [[tłusty kot]] • [[widzieć jak kot]] • [[w marcu koty, w kwietniu psy, a dopiero w maju my]] • [[w nocy wszystkie koty są bure]] / [[w nocy wszystkie koty są czarne]] / [[w nocy wszystkie koty są szare]] • [[tyle, co kot napłakał]] • [[znać się jak kot na kwaśnym mleku]]
+: zobacz też: [[Aneks:Przysłowia polskie - zwierzęta#kot|przysłowia o kotach]]
+{{etymologia}}
+: ''od'' {{etym|prasł|*kotъ}}<ref name="WSJP">{{WSJPonline|id=29368}}</ref><ref name="ESSJa">{{ESSJa|tom=XI|strony=209 i 210}}</ref> → kot (1.1), ''od'' {{etym|łac|cattus}}<ref name="WSJP" />
+: {{por}} {{etymn|białor|кот}}, {{dial}} {{etymn|bułg|кот}}, {{dial}} {{etymn|czes|kot}}, {{etymn|dłuż|kót}}, {{etymn|ros|кот}}, {{dial}} {{etymn|słc|kot}} ''i'' {{etym2n|ukr|кіт|кіт}}
+: {{por}} {{etymn|ang|cat}}, {{etymn|hiszp|gato}}, {{etymn|niem|Katze}}, {{etymn|szw|katt}} ''i'' {{etymn|wł|gatto}}
+: ''dzikie koty określano w czasach prasłowiańskich nazwą'' {{*}}stьbljь<ref name="ESSJa" />, ''od czego pochodzi'' {{etymn|pl|żbik}}, {{zob|żbik#pl|''tamże''}}
+{{uwagi}}
+: {{wikicytaty}}
+: (1.1-2) zobacz też: [[Indeks:Polski - Ssaki]]
+{{tłumaczenia}}
+* abazyński: (1.1) [[цгвы]] (cgvy)
+* abchaski: (1.1) [[ацгә]] (acgw)
+* aceh: (1.1) [[mië]]
+* adygejski: (1.1) [[кӏэтыу]] (č̣̍ătəw)
+* afrykanerski: (1.1) [[kat]]
+* ajnoski: (1.1) [[チャペ]] (cape)
+* akan: (1.1) [[agyinamoa]]
+* albański: (1.1) [[mace]] {{ż}}
+* alemański: (1.1) [[Chatz]] {{ż}}
+* amharski: (1.1) [[ድመት]]
+* angielski: (1.1) [[cat]]; (1.4) [[dust bunny]]; (2.1) [[freshman]]
+* arabski: (1.1) [[قط]], [[هر]], {{marokarab|[[مش]]}}, {{libijarab|[[قطوسة]]}}, {{libijarab|[[قطوس]]}}
+* awarski: (1.1) [[кето]]
+* bambara: (1.1) [[jakuma]]
+* baskijski: (1.1) [[katu]]
+* bawarski: (1.1) [[Katz]]
+* białoruski: (1.1) [[кот]] {{m}}
+* bretoński: (1.1) [[kazh]]
+* bułgarski: (1.1) [[котка]] {{ż}}
+* chiński standardowy: (1.1) [[猫]] (māo)
+* chorwacki: (1.1) [[mačka]] {{ż}}
+* czeski: (1.1) [[kočka]] {{ż}}
+* dolnołużycki: (1.1) [[kócka]] {{ż}}
+* duński: (1.1) [[kat]] {{w}}; (1.2) [[kat]] {{w}}
+* esperanto: (1.1) [[kato]]
+* estoński: (1.1) [[kass]]
+* farerski: (1.1) [[ketta]], [[kattur]]
+* fiński: (1.1) [[kissa]]
+* francuski: (1.1) [[chat]] {{m}}; (1.3) [[hase]] {{ż}}; (1.4) {{pot}} [[mouton]] {{m}}, {{pot}}[[chaton]] {{m}}; (2.1) {{slang}} [[bleu]] {{m}}
+* friulski: (1.1) [[gjat]]
+* fryzyjski: (1.1) [[kat]]
+* galicyjski: (1.1) [[gato]]
+* górnołużycki: (1.1) [[kóčka]]
+* grenlandzki: (1.1) [[qitsuk]]
+* gruziński: (1.1) [[კატა]] (k'at'a)
+* hausa: (1.1) [[mussa]]
+* hawajski: (1.1) [[pōpoki]]
+* hebrajski: (1.1) [[חתול]] {{m}} (chatúl)
+* hindi: (1.1) [[बिल्ली]] {{ż}} (billī)
+* hiszpański: (1.1) [[gato]] {{m}}; (1.2) [[felino]] {{m}}; (1.4) [[mota]] [[de]] [[polvo]] {{ż}}
+* indonezyjski: (1.1) [[kucing]]
+* interlingua: (1.1) [[catto]]
+* irlandzki: (1.1) [[cat]]
+* islandzki: (1.1) [[köttur]] {{m}}
+* japoński: (1.1) [[猫]] ([[ねこ]], neko)
+* jawajski: (1.1) [[ꦏꦸꦕꦶꦁ]] / [[kucing]]
+* jidysz: (1.1) [[קאַץ]] {{ż}} (kac)
+* joruba: (1.1) [[ológbò]], [[ológìnní]], [[músù]], [[èse]]
+* kabylski: (1.1) [[amcic]]
+* karelski: (1.1) [[kazi]], [[kaži]]
+* karpatorusiński: (1.1) [[мачка]] {{ż}}, [[мацур]] {{m}} ''(samiec)''
+* kaszubski: (1.1) [[pùjk]] {{m}}, [[kòt]] {{m}}
+* kataloński: (1.1) [[gat]], [[moix]]
+* kazachski: (1.1) [[мысық]]
+* keczua: (1.1) [[misi]]
+* kikuju: (1.1) [[mbaka]]
+* kirgiski: (1.1) [[мышык]]
+* koreański: (1.1) [[고양이]] (koyangi)
+* ladyński: (1.1) [[giat]]
+* litewski: (1.1) [[katė]] {{ż}}
+* łaciński: (1.1) [[felis]] {{ż}}
+* łotewski: (1.1) [[kaķis]]
+* macedoński: (1.1) [[мачка]] {{ż}}
+* malajski: (1.1) [[kucing]]
+* maltański: (1.1) [[qattus]]
+* mongolski: (1.1) [[муур]]
+* nepalski: (1.1) [[बिरालो]] (birālō)
+* niderlandzki: (1.1) [[kat]]
+* niemiecki: (1.1) [[Katze]] {{ż}}
+* norweski (bokmål): (1.1) [[katt]] {{m}}
+* norweski (nynorsk): (1.1) [[katt]] {{m}}
+* nowogrecki: (1.1) [[γάτα]] {{ż}}
+* orija: (1.1) [[ବିଲେଇ]] (bilēi)
+* ormiański: (1.1) [[կատու]]
+* perski: (1.1) [[گربه]] (gorbe)
+* polski język migowy: {{PJM-ukryj| (1.1) {{PJM|kot}}}}
+* portugalski: (1.1) [[gato]] {{m}}
+* prowansalski: (1.1) [[cat]]
+* romansz: (1.1) [[giat]]
+* rosyjski: (1.1) [[кошка]] {{ż}}, [[кот]] {{m}} ''(samiec)''; (2.1) [[дух]]
+* rumuński: (1.1) [[pisică]] {{ż}}
+* sanskryt: (1.1) [[ओतु]], [[काहल]]
+* sardyński: (1.1) [[gattu]]
+* serbski: (1.1) [[мачка]] {{ż}}
+* slovio: (1.1) [[kot]]
+* słowacki: (1.1) [[mačka]] {{ż}}
+* słoweński: (1.1) [[mačka]] {{ż}}
+* sranan tongo: (1.1) [[puspusi]]
+* suahili: (1.1) [[paka]]
+* sycylijski: (1.1) [[jattu]] {{m}}
+* szkocki: (1.1) [[cat]]
+* szwedzki: (1.1) [[katt]] {{w}}; (1.4) [[dammråtta]] {{w}}
+* średnio-wysoko-niemiecki: (1.1) [[katze]] {{ż}}
+* tahitański: (1.1) [[mīmī]]
+* tajski: (1.1) [[แมว]]
+* turecki: (1.1) [[kedi]]
+* tuvalu: (1.1) [[puusi]]
+* udmurcki: (1.1) [[коӵыш]] (kočyš)
+* ukraiński: (1.1) [[кіт]] {{m}}
+* uzbecki: (1.1) [[mushuk]]
+* walijski: (1.1) [[cath]]
+* warajski: (1.1) [[kucing]]
+* wepski: (1.1) [[kaži]]
+* węgierski: (1.1) [[macska]]
+* wilamowski: (1.1) [[koc]]
+* włoski: (1.1) [[gatto]] {{m}}
+* zulu: (1.1) [[ikati]] ''klasa 5/6'', [[ingobe]] ''klasa 5/6''
+{{źródła}}
+<references />
